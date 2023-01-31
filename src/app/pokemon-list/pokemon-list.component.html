@@ -1,0 +1,113 @@
+<div class="container">
+  <app-add-pokemon-modal
+    (addItemOnSave)="addPokemonToList($event)"
+  ></app-add-pokemon-modal>
+
+  <div class="row" *ngIf="allPokemons.length === 0; else table">
+    No Pokemon to Display
+  </div>
+  <ng-template #table>
+    <div class="row">
+      <div
+        class="col col-lg-4 col-md-3 col-sm-2 mb-2"
+        *ngFor="
+          let pokemon of allPokemons
+            | slice
+              : (currentPage - 1) * noOfPokemonsPerPage
+              : currentPage * noOfPokemonsPerPage
+        "
+      >
+        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+      </div>
+      <ngb-pagination
+        class="d-flex justify-content-center"
+        [(page)]="currentPage"
+        [pageSize]="noOfPokemonsPerPage"
+        [collectionSize]="allPokemons.length"
+        (pageChange)="handlePageChange()"
+      ></ngb-pagination>
+    </div>
+  </ng-template>
+</div>
+
+<!-- 
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Pokemon</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form [formGroup]="pokemonForm" class="d-flex flex-column">
+            <input
+              class="mb-2 rounded-sm text-center"
+              type="text"
+              placeholder="Pokemon Name"
+              formControlName="name"
+            />
+            <div
+              *ngIf="Name && Name.invalid && (Name.dirty || Name.touched)"
+              style="color: red"
+            >
+              <div *ngIf="Name.errors?.['required']">
+                Pokemon name is required
+              </div>
+            </div>
+            <input
+              class="mb-2 rounded-sm text-center"
+              type="number"
+              placeholder="Pokemon Id"
+              formControlName="id"
+            />
+            <span
+              *ngIf="Id && Id.invalid && (Id.dirty || Id.touched)"
+              style="color: red"
+              >pokemon id is required</span
+            >
+
+            <input
+              class="mb-2 rounded-sm text-center"
+              type="text"
+              placeholder="Pokemon Power"
+              formControlName="power"
+            />
+            <span
+              *ngIf="Power && Power.invalid && (Power.dirty || Power.touched)"
+              style="color: red"
+              >pokemon power is required</span
+            >
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          [disabled]="pokemonForm.invalid"
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="addPokemon()"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+</div> -->

@@ -1,0 +1,69 @@
+<button
+  class="btn btn-primary mb-3"
+  (click)="openAddPokemonFormModal(addPokemonFormModal)"
+>
+  Add a Pokemon
+</button>
+
+<ng-template #addPokemonFormModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Pokemon</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="closeAddPoekmonFormModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <form [formGroup]="pokemonForm" class="d-flex flex-column">
+        <input
+          class="mb-2 rounded-sm text-center"
+          type="text"
+          placeholder="Pokemon Name"
+          formControlName="name"
+        />
+        <div
+          *ngIf="Name && Name.invalid && (Name.dirty || Name.touched)"
+          style="color: red"
+        >
+          <div *ngIf="Name.errors?.['required']">Pokemon name is required</div>
+        </div>
+        <input
+          class="mb-2 rounded-sm text-center"
+          type="number"
+          placeholder="Pokemon Id"
+          formControlName="id"
+        />
+        <span
+          *ngIf="Id && Id.invalid && (Id.dirty || Id.touched)"
+          style="color: red"
+          >pokemon id is required</span
+        >
+
+        <input
+          class="mb-2 rounded-sm text-center"
+          type="text"
+          placeholder="Pokemon Power"
+          formControlName="power"
+        />
+        <span
+          *ngIf="Power && Power.invalid && (Power.dirty || Power.touched)"
+          style="color: red"
+          >pokemon power is required</span
+        >
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      [disabled]="pokemonForm.invalid"
+      class="btn btn-outline-dark"
+      (click)="addPokemon()"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>

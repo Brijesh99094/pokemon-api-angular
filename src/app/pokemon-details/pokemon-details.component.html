@@ -1,0 +1,14 @@
+<button class="btn btn-primary" (click) = "goBack()">Go back</button>
+<div *ngIf="pokemon !== null" class="card" style="width: 18rem">
+  <img
+    src="{{ pokemon.imageUrl }}"
+    class="card-img-top"
+    alt="{{ pokemon.name }}'s Image"
+  />
+  <div class="card-body">
+    <p class="card-text">
+      Name: <span class="fs-3 fw-bold">{{ pokemon.name }}</span>
+    </p>
+    <p class="card-text">power: {{ pokemon.power }}</p>
+  </div>
+</div>

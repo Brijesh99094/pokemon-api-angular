@@ -1,0 +1,24 @@
+<div
+  *ngIf="
+    notificationService.getIsNotificationOn() &&
+    notificationService.getNotification()
+  "
+  [ngClass]="{
+    'alert alert-dismissible fade show': true,
+    'alert-success':
+      notificationService.getNotification()?.getType() === 'success',
+    'alert-danger': notificationService.getNotification()?.getType() === 'error'
+  }"
+  role="alert"
+>
+  <strong
+    >{{ notificationService.getNotification()?.getType() | titlecase }}!</strong
+  >
+  {{ notificationService.getNotification()?.getMessage() }}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
