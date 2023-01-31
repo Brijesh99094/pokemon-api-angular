@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NotificationService } from '../services/notification/notification.service';
 import { PokemonModel } from './../model/pokemon.model';
 import { PokemonService } from './../services/pokemon.service';
@@ -14,29 +15,63 @@ export class PokemonListComponent implements OnInit {
   protected currentPage: number;
   private isNeedToFetchPokemons: boolean;
   private currApiPage: number;
+  private searchQuery: { [key: string]: string };
 
   constructor(
     private pokemonService: PokemonService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: ActivatedRoute
   ) {
     this.currApiPage = 1;
     this.isNeedToFetchPokemons = true;
     this.allPokemons = [];
     this.noOfPokemonsPerPage = 6;
     this.currentPage = 1;
+    this.searchQuery = {};
+  }
+
+  resetPaginationItems() {
+    this.allPokemons = [];
+    this.currApiPage = 1;
+    this.currentPage = 1;
+    this.isNeedToFetchPokemons = true;
+  }
+
+  ngOnInit(): void {
+    this.router.queryParamMap.subscribe({
+      next: (data) => {
+        const search: string | null = data.get('search');
+        if (search) {
+          if (isNaN(+search)) {
+            this.searchQuery = {
+              name: search,
+            };
+          } else {
+            this.searchQuery = {
+              id: search,
+            };
+          }
+        } else {
+          this.searchQuery = {};
+        }
+        this.resetPaginationItems();
+        this.fetchPokemons();
+      },
+    });
   }
 
   addPokemonToList(newPokemon: PokemonModel) {
     // add pokemon only if current page or current page's next page hase low items then noOfPokemons per page
     if (
-      this.allPokemons.slice(
+      Object.keys(this.searchQuery).length === 0 &&
+      (this.allPokemons.slice(
         (this.currentPage - 1) * this.noOfPokemonsPerPage,
         this.currentPage * this.noOfPokemonsPerPage
       ).length < this.noOfPokemonsPerPage ||
-      this.allPokemons.slice(
-        this.currentPage * this.noOfPokemonsPerPage,
-        this.currentPage * this.noOfPokemonsPerPage
-      ).length < this.noOfPokemonsPerPage
+        this.allPokemons.slice(
+          this.currentPage * this.noOfPokemonsPerPage,
+          this.currentPage * this.noOfPokemonsPerPage
+        ).length < this.noOfPokemonsPerPage)
     )
       this.allPokemons = this.allPokemons.concat([newPokemon]);
   }
@@ -61,15 +96,15 @@ export class PokemonListComponent implements OnInit {
       this.allPokemons = this.allPokemons.concat(fetchedPokemons);
     };
     this.pokemonService
-      .getPokemons(this.currApiPage++, this.noOfPokemonsPerPage * 2)
+      .getPokemons(
+        this.currApiPage++,
+        this.noOfPokemonsPerPage * 2,
+        this.searchQuery
+      )
       .subscribe({
         next: handleFetchPokemonsResponseApiHandler.bind(this),
         error: this.pokemonApiErrorHandler.bind(this),
       });
-  }
-
-  ngOnInit(): void {
-    this.fetchPokemons();
   }
 
   protected handlePageChange() {

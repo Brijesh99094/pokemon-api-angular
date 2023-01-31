@@ -9,11 +9,35 @@ export class PokemonService {
   baseUrl = 'http://localhost:3000/pokemon';
 
   constructor(private http: HttpClient) {}
-  getPokemons(pokemonPage?: number, noOfPokemonsPerPage?: number) {
+  getPokemons(
+    pokemonPage?: number,
+    noOfPokemonsPerPage?: number,
+    searchQuery?: { [key: string]: string }
+  ) {
+    console.log(searchQuery);
+
     let url = this.baseUrl;
-    if (noOfPokemonsPerPage && pokemonPage) {
-      url += `?_limit=${noOfPokemonsPerPage}&_page=${pokemonPage}`;
+    let searchQueryString = '';
+    let pagingQueryString = '';
+    if (searchQuery) {
+      const searchKeys: string[] = Object.keys(searchQuery);
+      if (searchKeys.length) {
+        for (let currQueryKey of searchKeys) {
+          searchQueryString += `${currQueryKey}=${searchQuery[currQueryKey]}`;
+        }
+      }
     }
+    if (noOfPokemonsPerPage && pokemonPage) {
+      pagingQueryString = `_limit=${noOfPokemonsPerPage}&_page=${pokemonPage}`;
+    }
+    if (searchQueryString.length) {
+      url += `?${searchQueryString}`;
+    }
+
+    if (pagingQueryString.length) {
+      url += `${searchQueryString.length ? '&' : '?'}${pagingQueryString}`;
+    }
+
     return this.http.get<PokemonModel[]>(url);
   }
 

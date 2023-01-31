@@ -5,9 +5,10 @@
     <a href="#"> Latest </a>
     <a routerLink="/pokemons"> Pokemons</a>
     <a routerLink="/about"> About</a>
-    <form class="d-flex">
+    <form method="get" action="/pokemons" class="d-flex">
       <input
         class="form-control me-2"
+        name="search"
         type="search"
         placeholder="Search"
         aria-label="Search"

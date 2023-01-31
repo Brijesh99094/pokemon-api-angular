@@ -2,201 +2,81 @@
   "pokemon": [
     {
       "id": 1,
-      "name": "Bulbasaur",
-      "power": "Grass",
+      "name": "bulbasaur",
+      "power": "grass",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
     },
     {
       "id": 2,
-      "name": "Ivysaur",
-      "power": "Grass",
+      "name": "ivysaur",
+      "power": "grass",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png"
     },
     {
       "id": 3,
-      "name": "Venusaur",
-      "power": "Grass",
+      "name": "venusaur",
+      "power": "grass",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png"
     },
     {
       "id": 4,
-      "name": "Charmander",
-      "power": "Fire",
+      "name": "charmander",
+      "power": "fire",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
     },
     {
       "id": 5,
-      "name": "Charmeleon",
-      "power": "Fire",
+      "name": "charmeleon",
+      "power": "fire",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
     },
     {
       "id": 6,
-      "name": "Charizard",
-      "power": "Fire",
+      "name": "charizard",
+      "power": "fire",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
     },
     {
       "id": 7,
-      "name": "Squirtle",
-      "power": "Water",
+      "name": "squirtle",
+      "power": "water",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
     },
     {
       "id": 8,
-      "name": "Wartortle",
-      "power": "Grass",
+      "name": "wartortle",
+      "power": "grass",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png"
     },
     {
       "id": 9,
-      "name": "Blastoise",
-      "power": "Water",
+      "name": "blastoise",
+      "power": "water",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png"
     },
     {
       "id": 10,
-      "name": "Caterpie",
-      "power": "Bug",
+      "name": "caterpie",
+      "power": "bug",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
     },
     {
       "id": 11,
-      "name": "Metapod",
-      "power": "Bug",
+      "name": "metapod",
+      "power": "bug",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png"
     },
     {
       "id": 12,
-      "name": "Butterfree",
+      "name": "butterfree",
       "power": "jsk",
       "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
     },
     {
-      "id": 252,
-      "name": "jdkfsjkfhj",
-      "power": "djkfsdkjfh",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/252.png"
-    },
-    {
-      "id": 52,
-      "name": "dflkjsdfdfjk",
-      "power": "sdfdsnbfdh",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/052.png"
-    },
-    {
-      "id": 555,
-      "name": "djkfdsjfdj",
-      "power": "djfsdfhd",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/555.png"
-    },
-    {
-      "id": 1,
-      "name": "Bulbasaur",
-      "power": "Grass",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
-    },
-    {
-      "id": 2,
-      "name": "Ivysaur",
-      "power": "Grass",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png"
-    },
-    {
-      "id": 3,
-      "name": "Venusaur",
-      "power": "Grass",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png"
-    },
-    {
-      "id": 4,
-      "name": "Charmander",
-      "power": "Fire",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
-    },
-    {
-      "id": 5,
-      "name": "Charmeleon",
-      "power": "Fire",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
-    },
-    {
-      "id": 6,
-      "name": "Charizard",
-      "power": "Fire",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
-    },
-    {
-      "id": 7,
-      "name": "Squirtle",
-      "power": "Water",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
-    },
-    {
-      "id": 8,
-      "name": "Wartortle",
-      "power": "Grass",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png"
-    },
-    {
-      "id": 9,
-      "name": "Blastoise",
-      "power": "Water",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png"
-    },
-    {
-      "id": 10,
-      "name": "Caterpie",
-      "power": "Bug",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
-    },
-    {
-      "id": 11,
-      "name": "Metapod",
-      "power": "Bug",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png"
-    },
-    {
-      "id": 12,
-      "name": "Butterfree",
-      "power": "jsk",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
-    },
-    {
-      "id": 12656656,
-      "name": "jhdfdsfjk",
-      "power": "djfdh",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/12656656.png"
-    },
-    {
-      "id": 5649657489659,
-      "name": "jfkgfjkjg",
-      "power": "djkfdiuuk",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/5649657489659.png"
-    },
-    {
-      "id": 56415328645,
-      "name": "djfdskfh",
-      "power": "jkdf",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/56415328645.png"
-    },
-    {
-      "id": 45465635962,
-      "name": "dsijfjdfj",
-      "power": "sdjkfdfoijk",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/45465635962.png"
-    },
-    {
-      "id": 1231,
-      "name": "kdsjkajf;kdjlk;j",
-      "power": "asj41fdlk4asj7844",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/1231.png"
-    },
-    {
-      "id": 123123123,
-      "name": "asdfasdfasdfasdf",
-      "power": "qwfasdfas",
-      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/123123123.png"
+      "id": 46,
+      "name": "paras",
+      "power": "fly",
+      "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/046.png"
     }
   ]
 }

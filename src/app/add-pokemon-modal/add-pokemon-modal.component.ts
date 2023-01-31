@@ -60,8 +60,8 @@ export class AddPokemonModalComponent implements OnInit {
   addPokemon() {
     const pokemon: PokemonModel = {
       id: this.Id.value,
-      name: this.Name.value,
-      power: this.Power.value,
+      name: this.Name.value.toLowerCase(),
+      power: this.Power.value.toLowerCase(),
       imageUrl: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${this.getImageId(
         this.Id.value
       )}.png`,
