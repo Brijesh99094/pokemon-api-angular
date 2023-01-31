@@ -68,19 +68,13 @@ export class AddPokemonModalComponent implements OnInit {
     };
 
     const addPokemonApiResponseHandler = (addedPokemon: PokemonModel) => {
-      // this.allPokemons.push(addedPokemon);
       this.addItemOnSave.emit(addedPokemon);
-      console.log('hello world');
-      this.clearForm();
-      this.closeAddPoekmonFormModal();
       this.notificationService.showNotification(
         'success',
         `Pokemon ${addedPokemon.name} is added`
       );
     };
     const addPokemonApiErrorHandler = (error: Error) => {
-      console.log(error);
-      this.closeAddPoekmonFormModal();
       this.notificationService.showNotification(
         'error',
         error.message || 'Error Occured'
@@ -90,6 +84,10 @@ export class AddPokemonModalComponent implements OnInit {
     this.pokemonService.postPokemons(pokemon).subscribe({
       next: addPokemonApiResponseHandler.bind(this),
       error: addPokemonApiErrorHandler.bind(this),
+      complete: () => {
+        this.clearForm();
+        this.closeAddPoekmonFormModal();
+      },
     });
   }
 
