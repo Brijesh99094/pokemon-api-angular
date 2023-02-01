@@ -30,6 +30,14 @@ export class PokemonListComponent implements OnInit {
     this.searchQuery = {};
   }
 
+  handleSearchInputChange(event: any) {
+    console.log(event.target.value);
+    this.resetPaginationItems();
+
+  }
+
+  
+
   resetPaginationItems() {
     this.allPokemons = [];
     this.currApiPage = 1;

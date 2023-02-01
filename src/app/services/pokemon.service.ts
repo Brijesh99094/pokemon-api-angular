@@ -14,8 +14,6 @@ export class PokemonService {
     noOfPokemonsPerPage?: number,
     searchQuery?: { [key: string]: string }
   ) {
-    console.log(searchQuery);
-
     let url = this.baseUrl;
     let searchQueryString = '';
     let pagingQueryString = '';
