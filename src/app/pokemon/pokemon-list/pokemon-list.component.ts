@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NotificationService } from '../services/notification/notification.service';
-import { PokemonModel } from './../model/pokemon.model';
+import { NotificationService } from 'src/app/services/notification/notification.service';
+import { PokemonModel } from '../models/pokemon.model';
 import { PokemonService } from './../services/pokemon.service';
 
 @Component({
@@ -33,10 +33,7 @@ export class PokemonListComponent implements OnInit {
   handleSearchInputChange(event: any) {
     console.log(event.target.value);
     this.resetPaginationItems();
-
   }
-
-  
 
   resetPaginationItems() {
     this.allPokemons = [];

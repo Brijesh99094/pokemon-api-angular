@@ -12,9 +12,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { PokemonModel } from '../model/pokemon.model';
-import { NotificationService } from './../services/notification/notification.service';
-import { PokemonService } from './../services/pokemon.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
+import { PokemonModel } from '../models/pokemon.model';
+import { PokemonService } from '../services/pokemon.service';
 
 @Component({
   selector: 'app-add-pokemon-modal',
